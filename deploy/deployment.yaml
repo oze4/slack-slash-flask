@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ugonnawinms-slash-flask
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ugonnawinms-slash-flask
+  template:
+    metadata:
+      labels:
+        app: ugonnawinms-slash-flask
+    spec:
+      containers:
+      - name: ugonnawinms-slash-flask
+        image: oze4/slack-slash-flask:latest
+        env:
+        - name: PORT
+          value: ${PORT}
+        ports:
+        - containerPort: ${PORT}
