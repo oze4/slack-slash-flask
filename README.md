@@ -1,5 +1,5 @@
-# Slack Slash Command Flask Micro Service
+## Slack Slash Command Flask Micro Service
 
-## Commmands
+### Commmands
 
 - `/flask`
