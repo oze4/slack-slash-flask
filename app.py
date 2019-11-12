@@ -8,7 +8,7 @@ app = Flask(__name__)
 def slash_flask():
     try:
         print(request)
-        return "[Python:Flask]::Success :smile:"
+        return "[Python:Flask]::Success :smile: " + request.get_data()
     except:
         return "Error :cry:" + jsonify("nope")
 
