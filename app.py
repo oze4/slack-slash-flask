@@ -6,9 +6,9 @@ app = Flask(__name__)
 
 @app.route("/slash/flask", methods=['GET', 'POST'])
 def slash_flask():
+    print(request)
     try:
-        print(request)
-        return "[Python:Flask]::Success :smile: " + request.get_data()
+        return "[Python:Flask]::Success :smile:"
     except:
         return "Error :cry:" + jsonify("nope")
 
