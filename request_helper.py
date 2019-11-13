@@ -27,4 +27,4 @@ def validate_request(request):
             return validated
             #return True
         except Exception as e:
-            raise e
+            raise Exception("error from request_helper " + str(e))
