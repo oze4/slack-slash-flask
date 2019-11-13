@@ -10,7 +10,7 @@ def slash_flask():
     try:
         request_string = requestHelper.request_body_to_string(request)
         print(request_string)
-        return "[Python:Flask]::Success :smile:"
+        return "[Python:Flask]::Success :smile: " + request_string
     except:
         return "Error :cry:" + jsonify("nope")
 
