@@ -13,11 +13,10 @@ def validate_request(request):
         try:
             request_data = request.get_data()
             request_string = request_data.decode('utf8')
-            return request_string
-            request_as_json = json.loads(request_string)
+            # request_as_json = json.loads(request_string)
 
             try:
-                request_token = request_as_json["token"]
+                request_token = request.form["token"]
             except:
                 return False
 
