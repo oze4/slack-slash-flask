@@ -13,6 +13,7 @@ def validate_request(request):
         try:
             request_data = request.get_data()
             request_string = request_data.decode('utf8')
+            return request_string
             request_as_json = json.loads(request_string)
 
             try:
