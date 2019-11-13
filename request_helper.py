@@ -19,12 +19,11 @@ def validate_request(request):
             except:
                 return False
 
-            og_headers = dict(request.headers)
             headers = {
                 "x-raw-body": request_string,
                 "x-raw-token": request_token
             }
-            headers.update(og_headers)
+            headers.update(dict(request.headers))
             validated = fetch.post(SLACK_VALIDATOR_URL, headers=headers)
             return validated
             #return True
