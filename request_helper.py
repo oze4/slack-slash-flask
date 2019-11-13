@@ -13,21 +13,21 @@ def validate_request(request):
         try:
             request_data = request.get_data()
             request_string = request_data.decode('utf8')
-            # request_as_json = json.loads(request_string)
 
             try:
                 request_token = request.form["token"]
             except:
                 return False
 
+            og_headers = dict(request.headers)
             headers = {
                 "x-raw-body": request_string,
                 "x-raw-token": request_token
             }
+            headers.update(og_headers)
             validated = fetch.post(SLACK_VALIDATOR_URL, headers=headers)
             return validated
             #return True
         except Exception as e:
             ex = exceptions.GetException()
             raise Exception(ex)
-            #raise Exception("error from request_helper " + str(e))
