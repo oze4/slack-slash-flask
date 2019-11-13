@@ -1,4 +1,4 @@
-import json, env_settings, os
+import json, os
 import requests as fetch
 
 

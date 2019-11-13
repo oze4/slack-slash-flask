@@ -1,5 +1,5 @@
 from flask import Flask, request, Response
-import json, env_settings, os, dotenv
+import json, os, dotenv
 import request_helper
 
 dotenv.load_dotenv(verbose=True)
