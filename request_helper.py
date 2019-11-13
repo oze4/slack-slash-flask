@@ -1,5 +1,6 @@
 import json, os
 import requests as fetch
+import exceptions
 
 
 SLACK_VALIDATOR_URL = os.getenv("SLACK_VALIDATOR_URL")
@@ -27,4 +28,6 @@ def validate_request(request):
             return validated
             #return True
         except Exception as e:
-            raise Exception("error from request_helper " + str(e))
+            ex = exceptions.GetException()
+            raise Exception(ex)
+            #raise Exception("error from request_helper " + str(e))
