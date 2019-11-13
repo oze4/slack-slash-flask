@@ -20,7 +20,8 @@ def slash_flask():
             if validated == True:
                 return "[Python:Flask]::Success :smile: "
             else:
-                return Response('<Unable to validate request>', 401, {'x-no-validation':'validation="unable"'})
+                #return Response('<Unable to validate request>', 401, {'x-no-validation':'validation="unable"'})
+                return "Unable to validate :cry: "
         else:
             return validated.json()
     except Exception as e:
