@@ -26,5 +26,5 @@ def validate_request(request):
             validated = fetch.post(SLACK_VALIDATOR_URL, headers=headers)
             return validated
             #return True
-        except:
-            return False
+        except Exception as e:
+            raise e
