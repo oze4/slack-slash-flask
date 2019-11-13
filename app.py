@@ -28,7 +28,7 @@ def slash_flask():
         print("***ERROR***")
         print(e)
         print("***ERROR***")
-        return "Error :cry: " + e
+        return "Error :cry: " + str(e)
 
 
 if __name__ == '__main__':
