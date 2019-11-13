@@ -15,7 +15,6 @@ app = Flask(__name__)
 def slash_flask():
     try:
         validated = request_helper.validate_request(request)
-        #return validated
         if type(validated) is bool:
             if validated == True:
                 return "[Python:Flask]::Success :smile: "
