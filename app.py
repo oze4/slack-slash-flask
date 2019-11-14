@@ -22,7 +22,7 @@ def slash_flask():
                 #return Response('<Unable to validate request>', 401, {'x-no-validation':'validation="unable"'})
                 return "Unable to validate :cry: "
         else:
-            return validated.json()
+            return validated
     except Exception as e:
         print("***ERROR***")
         print(e)

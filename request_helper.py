@@ -19,14 +19,20 @@ def validate_request(request):
             except:
                 return False
 
-            headers = {
+            headers = dict(request.headers)
+            headers.update({
                 "x-raw-body": request_string,
                 "x-raw-token": request_token
-            }
-            #headers.update(dict(request.headers))
+            })
+
             validated = fetch.post(SLACK_VALIDATOR_URL, headers=headers)
-            return validated
+
+            try:
+                return validated.json()
+            except:
+                return validated
             #return True
+
         except Exception as e:
             ex = exceptions.GetException()
             raise Exception(ex)
