@@ -1,4 +1,4 @@
-## Slack Slash Command Flask Micro Service
+## Slack Slash Command - MicroService Written in Flask
 
 ### Commmands
 
