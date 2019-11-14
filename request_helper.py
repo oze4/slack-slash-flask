@@ -19,7 +19,6 @@ def validate_request(request):
             except:
                 return False
 
-            #og_headers = dict(request.headers)
             headers = {
                 "X-Slack-Signature": request.headers["X-Slack-Signature"],
                 "X-Slack-Request-Timestamp": request.headers["X-Slack-Request-Timestamp"],
@@ -27,15 +26,17 @@ def validate_request(request):
                 "x-raw-token": request_token
             }
 
-            #return headers
-
             validated = fetch.post(SLACK_VALIDATOR_URL, headers=headers)
 
             try:
-                return validated.json()
+                validated_json = validated.json()
+                status = validated_json["status"]
+                if status == True or status == "true":
+                    return True
+                else:
+                    return False
             except:
-                return validated
-            #return True
+                return False
 
         except Exception as e:
             ex = exceptions.GetException()
