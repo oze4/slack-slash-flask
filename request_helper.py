@@ -27,7 +27,7 @@ def validate_request(request):
                 "x-raw-token": request_token
             }
 
-            return headers
+            #return headers
 
             validated = fetch.post(SLACK_VALIDATOR_URL, headers=headers)
 
