@@ -19,11 +19,13 @@ def validate_request(request):
             except:
                 return False
 
-            headers = dict(request.headers)
-            headers.update({
+            #og_headers = dict(request.headers)
+            headers = {
+                "X-Slack-Signature": request.headers["X-Slack-Signature"],
+                "X-Slack-Request-Timestamp": request.headers["X-Slack-Request-Timestamp"],
                 "x-raw-body": request_string,
                 "x-raw-token": request_token
-            })
+            }
 
             return headers
 
