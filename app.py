@@ -9,6 +9,8 @@ dotenv.load_dotenv(verbose=True)
 HOST = "0.0.0.0"
 PORT = os.getenv("PORT")
 DEBUG = True
+SUCCESS_RESPONSE = "[Python][Flask]  :tada:  Success!  :tada:"
+ERROR_RESPONSE = "[Python][Flask]  :cry:  ERROR  :cry:"
 
 app = Flask(__name__)
 
@@ -18,10 +20,10 @@ def slash_flask():
     try:
         validated = request_helper.validate_request(request)
         if validated == True:
-            return "[Python][Flask] :tada: Success! :tada: "
-        return "[Python][Flask] :cry: ERROR :cry: "
-    except Exception as e:
-        return "Error :cry: " + str(e)
+            return SUCCESS_RESPONSE
+        return ERROR_RESPONSE
+    except:
+        return ERROR_RESPONSE
 
 
 if __name__ == '__main__':
